@@ -1,15 +1,15 @@
-FROM golang:1.22.3-alpine3.18
+FROM golang:alpine
 
 WORKDIR /app
 
-# Copy go.mod and go.sum files to download dependencies
-COPY go.mod go.sum ./
-
-# Download dependencies
-RUN go mod download
-
 # Copy the entire project to the working directory
 COPY . .
+
+# Download all the dependencies
+RUN go get -d -v ./...
+
+# Install the package
+RUN go install -v ./...
 
 # Build the Go binary
 RUN go build -o go-api-auth
