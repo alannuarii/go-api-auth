@@ -8,7 +8,14 @@ import (
 func main(){
 	r:= gin.Default()
 
-	r.GET("api/alluser", controllers.GetAllUser)
+	r.GET("api/users", controllers.GetAllUser)
+	r.GET("api/user/:id", controllers.GetUser)
+
+	r.POST("api/user", controllers.InsertUser)
+
+	r.PUT("api/user/:id", controllers.UpdateUser)
+
+	r.DELETE("api/user/:id", controllers.DeleteUSer)
 
 	r.Run(":8888")
 }

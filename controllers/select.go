@@ -12,7 +12,7 @@ func GetAllUser(c *gin.Context){
 
 	users := []models.User{}
 
-	query := `SELECT * FROM user`
+	query := `SELECT id_user, name, email, role FROM user`
 
 	err := db.Select(&users, query)
 	if err != nil{
@@ -21,4 +21,22 @@ func GetAllUser(c *gin.Context){
 	}
 
 	c.JSON(200, gin.H{"message": "Sukses", "data": users})
+}
+
+func GetUser(c *gin.Context){
+	db := db.DB
+
+	userId := c.Param("id")
+
+	user := []models.User{}
+
+	query := `SELECT id_user, name, email, role FROM user WHERE id_user = ?`
+
+	err := db.Select(&user, query, userId)
+	if err != nil{
+		c.JSON(500, gin.H{"message": err.Error()})
+        return
+	}
+
+	c.JSON(200, gin.H{"message": "Sukses", "data": user})
 }
