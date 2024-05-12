@@ -5,8 +5,6 @@ WORKDIR /app
 # Copy the entire project to the working directory
 COPY . .
 
-COPY .env .
-
 # Download all the dependencies
 RUN go get -d -v ./...
 
