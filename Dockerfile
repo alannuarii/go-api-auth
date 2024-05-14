@@ -1,4 +1,4 @@
-FROM golang:alpine
+FROM golang:1.22.3-alpine3.18
 
 WORKDIR /app
 
@@ -6,10 +6,10 @@ WORKDIR /app
 COPY . .
 
 # Download all the dependencies
-RUN go get -d -v ./...
+# RUN go get -d -v ./...
 
-# Install the package
-RUN go install -v ./...
+# # Install the package
+# RUN go install -v ./...
 
 # Build the Go binary
 RUN go build -o go-api-auth
