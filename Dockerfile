@@ -12,10 +12,10 @@ RUN go get -d -v ./...
 RUN go install -v ./...
 
 # Build the Go binary
-RUN go build -o main main.go
+RUN go build -o go-api-auth
 
 # Expose port 8080 to the outside world
 EXPOSE 8888
 
 # Command to run the executable
-CMD ["go", "run", "main.go"]
+CMD ./go-api-auth
