@@ -6,16 +6,16 @@ WORKDIR /app
 COPY . .
 
 # Download all the dependencies
-# RUN go get -d -v ./...
+RUN go get -d -v ./...
 
 # # Install the package
-# RUN go install -v ./...
+RUN go install -v ./...
 
 # Build the Go binary
-RUN go build -o go-api-auth
+RUN go build -o main.go
 
 # Expose port 8080 to the outside world
 EXPOSE 8888
 
 # Command to run the executable
-CMD ["./go-api-auth"]
+CMD ["go", "run", "main.go"]
