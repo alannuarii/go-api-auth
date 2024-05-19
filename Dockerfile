@@ -11,6 +11,9 @@ RUN go get -d -v ./...
 # # Install the package
 RUN go install -v ./...
 
+# Create a new file .env
+RUN touch .env
+
 # Build the Go binary
 RUN go build -o go-api-auth
 
