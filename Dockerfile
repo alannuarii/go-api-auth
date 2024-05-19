@@ -12,7 +12,7 @@ RUN go get -d -v ./...
 RUN go install -v ./...
 
 # Build the Go binary
-RUN go build -o main.go
+RUN go build -o main main.go
 
 # Expose port 8080 to the outside world
 EXPOSE 8888
