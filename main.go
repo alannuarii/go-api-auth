@@ -12,6 +12,7 @@ func main(){
 	r.GET("api/user/:id", controllers.GetUser)
 
 	r.POST("api/user", controllers.InsertUser)
+	r.POST("api/login", controllers.Login)
 
 	r.PUT("api/user/:id", controllers.UpdateUser)
 
