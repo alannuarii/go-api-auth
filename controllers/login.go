@@ -38,7 +38,7 @@ func Login(c *gin.Context) {
 		"name": user.Name,
 		"email": user.Email,
 		"role": user.Role,
-		"exp": time.Now().Add(time.Hour * 24).Unix(),
+		"exp":  time.Now().AddDate(0, 1, 0).Unix(),
 	})
 
 	secretKey := os.Getenv("SECRET_KEY")
